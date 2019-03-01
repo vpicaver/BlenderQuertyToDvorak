@@ -3,7 +3,7 @@ Blender 2.8 keyboard import script for mapping physical QWERTY keyboard to a Dvo
 
 Keyboard import script: https://github.com/vpicaver/BlenderQuertyToDvorak/blob/master/QwertyToDvorak_2.8.py
 
-For example on a QWERTY keyboard, Blender maps File->Save to Control-S. This script will remap it to Control-O. 
+For example on a QWERTY keyboard, Blender maps `File->Save` to `Control-S`. This script will remap it to `Control-O`. 
 
 This is how the file was generated to map Qwerty to Dvorak in Blender 2.8:
 
