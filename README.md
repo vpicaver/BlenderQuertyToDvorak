@@ -21,75 +21,75 @@ This will force Blender to export all the keyboard short cuts
 
 6. Scroll to the bottom of the exported python file (mine over 10,000 lines long) and replace:
 
-    if __name__ == "__main__":
-        import os
-        from bl_keymap_utils.io import keyconfig_import_from_data
-        keyconfig_import_from_data(os.path.splitext(os.path.basename(__file__))[0], keyconfig_data)
+        if __name__ == "__main__":
+            import os
+            from bl_keymap_utils.io import keyconfig_import_from_data
+            keyconfig_import_from_data(os.path.splitext(os.path.basename(__file__))[0], keyconfig_data)
 
-with
+    with
 
-    q_to_d = {
-         'MINUS': 'LEFT_BRACKET',
-         'EQUAL': 'RIGHT_BRACKET',
-         'Q': 'QUOTE',
-         'W': 'COMMA',
-         'E': 'PERIOD',
-         'R': 'P',
-         'T': 'Y',
-         'Y': 'F',
-         'U': 'G',
-         'I': 'C',
-         'O': 'R',
-         'P': 'L',
-         'LEFT_BRACKET': 'SLASH',
-         'RIGHT_BRACKET': 'EQUAL',
-     #    'BACK_SLASH': 'BACK_SLASH',
-     #    'A': 'A',
-         'S': 'O',
-         'D': 'E',
-         'F': 'U',
-         'G': 'I',
-         'H': 'D',
-         'J': 'H',
-         'K': 'T',
-         'L': 'N',
-         'SEMI_COLON': 'S',
-         'QUOTE': 'MINUS',
-         'Z': 'SEMI_COLON',
-         'X': 'Q',
-         'C': 'J',
-         'V': 'K',
-         'B': 'X',
-         'N': 'B',
-     #    'M': 'M',
-         'COMMA': 'W',
-         'PERIOD ': 'V',
-         'SLASH': 'Z',
-    }
+        q_to_d = {
+             'MINUS': 'LEFT_BRACKET',
+             'EQUAL': 'RIGHT_BRACKET',
+             'Q': 'QUOTE',
+             'W': 'COMMA',
+             'E': 'PERIOD',
+             'R': 'P',
+             'T': 'Y',
+             'Y': 'F',
+             'U': 'G',
+             'I': 'C',
+             'O': 'R',
+             'P': 'L',
+             'LEFT_BRACKET': 'SLASH',
+             'RIGHT_BRACKET': 'EQUAL',
+         #    'BACK_SLASH': 'BACK_SLASH',
+         #    'A': 'A',
+             'S': 'O',
+             'D': 'E',
+             'F': 'U',
+             'G': 'I',
+             'H': 'D',
+             'J': 'H',
+             'K': 'T',
+             'L': 'N',
+             'SEMI_COLON': 'S',
+             'QUOTE': 'MINUS',
+             'Z': 'SEMI_COLON',
+             'X': 'Q',
+             'C': 'J',
+             'V': 'K',
+             'B': 'X',
+             'N': 'B',
+         #    'M': 'M',
+             'COMMA': 'W',
+             'PERIOD ': 'V',
+             'SLASH': 'Z',
+        }
 
-    if __name__ == "__main__":
-        import os
-        from bl_keymap_utils.io import keyconfig_import_from_data
-    
-        def remap(keys):
-            if isinstance(keys, (list, tuple, dict)):
-                for k in keys:
-                    if isinstance(k, (list, tuple)):
-                        remap(k)
-                    elif isinstance(k, dict):
-                        #print(type(k))
-                        #print(k)
-                        
-                        if 'type' in k:
-                            dvorakKey = q_to_d.get(k["type"], None)
-                            if dvorakKey != None:
-                                print(f'Remapping {k["type"]} -> {dvorakKey}')
-                                k["type"] = dvorakKey
-                        else:
-                            for (dicKey, dicValue) in k.items():
-                                remap(dicValue)
-                            
-        remap(keyconfig_data)
+        if __name__ == "__main__":
+            import os
+            from bl_keymap_utils.io import keyconfig_import_from_data
+
+            def remap(keys):
+                if isinstance(keys, (list, tuple, dict)):
+                    for k in keys:
+                        if isinstance(k, (list, tuple)):
+                            remap(k)
+                        elif isinstance(k, dict):
+                            #print(type(k))
+                            #print(k)
+
+                            if 'type' in k:
+                                dvorakKey = q_to_d.get(k["type"], None)
+                                if dvorakKey != None:
+                                    print(f'Remapping {k["type"]} -> {dvorakKey}')
+                                    k["type"] = dvorakKey
+                            else:
+                                for (dicKey, dicValue) in k.items():
+                                    remap(dicValue)
+
+            remap(keyconfig_data)
     
     
     keyconfig_import_from_data(os.path.splitext(os.path.basename(__file__))[0], keyconfig_data)
