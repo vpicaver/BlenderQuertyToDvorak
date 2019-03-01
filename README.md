@@ -91,8 +91,7 @@ This will force Blender to export all the keyboard short cuts
 
             remap(keyconfig_data)
     
-    
-    keyconfig_import_from_data(os.path.splitext(os.path.basename(__file__))[0], keyconfig_data)
+            keyconfig_import_from_data(os.path.splitext(os.path.basename(__file__))[0], keyconfig_data)
 
 7. Save and re-import the saved file.
 
